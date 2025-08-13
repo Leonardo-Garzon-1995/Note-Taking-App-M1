@@ -1,6 +1,9 @@
 let notes = []
 let editingNoteId = null
 
+const deleteAllBtn = document.querySelector(".delete-all-btn")
+
+
 function loadNotes() {
     const savedNotes = localStorage.getItem("quickNotes")
     return savedNotes ? JSON.parse(savedNotes) : []
@@ -31,6 +34,12 @@ function saveNote(e) {
     renderNotes()
     closeNoteDialogue()
 }
+
+deleteAllBtn.addEventListener("click", function  deleteAll() {
+    notes = []
+    saveNotes()
+    renderNotes()
+})
 
 
 
